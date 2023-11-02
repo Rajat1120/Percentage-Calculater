@@ -1,11 +1,18 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <title>Percentage Calculator</title>
     <style>
       body {
-        font-family: sans-serif;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+      }
+
+      h1 {
+        text-align: center;
       }
 
       input {
@@ -23,26 +30,50 @@
       }
 
       #result {
-        margin-top: 10px;
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 250px;
+        text-align: left;
+      }
+
+      #result p {
+        margin: 0;
+      }
+
+      .label {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .charge {
+        color: #0f834d;
+      }
+
+      .total {
+        color: #d43f3a;
       }
     </style>
   </head>
   <body>
     <h1>Percentage Calculator</h1>
 
-    <input type="number" id="number" placeholder="Enter number" />
-    <button type="button" onclick="calculate()">Calculate</button>
+    <form>
+      <input type="number" id="number" placeholder="Enter number" />
+      <button type="button" onclick="calculate()">Calculate</button>
+    </form>
 
     <div id="result"></div>
 
     <script>
-      function calculate() {
-        // Get the number value from the input field.
-        const number = parseInt(document.getElementById("number").value);
+      async function calculate() {
+        const numberField = document.getElementById("number");
+        const resultField = document.getElementById("result");
 
-        // Calculate the amount based on the number.
+        const number = parseInt(numberField.value);
         let Percentage = 5;
         let amount;
+
         if (number <= 100 && number > 1) {
           amount = 5;
         } else if (number <= 200 && number > 100) {
@@ -61,13 +92,13 @@
 
         let totalAmount = amount + number;
 
-        // Display the amount.
-        document.getElementById("result").innerHTML = `
-        Percentage: ${Percentage}
-        Charge: ${amount} 
-         Total amount: ${amount + number}
-        
-      `;
+        resultField.innerHTML = `
+          <p class="label">Percentage:</p><p>${Percentage}</p>
+          <p class="label charge">Charge:</p><p>${amount}</p>
+          <p class="label total">Total amount:</p><p>${totalAmount}</p>
+        `;
+
+        numberField.value = ""; // Clear the input field after displaying the result
       }
     </script>
   </body>
