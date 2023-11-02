@@ -1,1 +1,74 @@
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Percentage Calculator</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      input {
+        width: 200px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: #000;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+
+      #result {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Percentage Calculator</h1>
+
+    <input type="number" id="number" placeholder="Enter number" />
+    <button type="button" onclick="calculate()">Calculate</button>
+
+    <div id="result"></div>
+
+    <script>
+      function calculate() {
+        // Get the number value from the input field.
+        const number = parseInt(document.getElementById("number").value);
+
+        // Calculate the amount based on the number.
+        let Percentage = 5;
+        let amount;
+        if (number <= 100 && number > 1) {
+          amount = 5;
+        } else if (number <= 200 && number > 100) {
+          Percentage = "5%";
+          amount = number * 0.05;
+        } else if (number <= 300 && number > 200) {
+          Percentage = "4%";
+          amount = number * 0.04;
+        } else if (number <= 400 && number > 300) {
+          Percentage = "3%";
+          amount = number * 0.03;
+        } else if (number > 400 && number < 10000) {
+          Percentage = "2%";
+          amount = number * 0.02;
+        }
+
+        let totalAmount = amount + number;
+
+        // Display the amount.
+        document.getElementById("result").innerHTML = `
+        Percentage: ${Percentage}
+        Charge: ${amount} 
+         Total amount: ${amount + number}
+        
+      `;
+      }
+    </script>
+  </body>
+</html>
