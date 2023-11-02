@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Percentage Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -9,16 +10,19 @@
         flex-direction: column;
         align-items: center;
         margin: 20px;
+        height: 100vh;
+        /* justify-content: space-; */
       }
 
       h1 {
         text-align: center;
+        margin-bottom: 8rem;
       }
 
       input {
         width: 200px;
         padding: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 3rem;
       }
 
       button {
@@ -30,7 +34,7 @@
       }
 
       #result {
-        margin-top: 20px;
+        margin-top: 10px;
         padding: 10px;
         border: 1px solid #ccc;
         width: 250px;
@@ -44,6 +48,13 @@
       .label {
         font-weight: bold;
         color: #333;
+        font-size: 18px; /* Increased font size */
+      }
+
+      .charge,
+      .total {
+        font-size: 20px; /* Increased font size */
+        margin-top: 5px; /* Additional space between items */
       }
 
       .charge {
