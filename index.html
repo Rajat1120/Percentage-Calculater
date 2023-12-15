@@ -101,14 +101,16 @@
         } else if (number > 400 && number <= 10000) {
           Percentage = "2%";
           amount = number * 0.02;
+        }else if (number > 10000){
+          alert("Amount should be less than 10,000")
         }
 
         let totalAmount = amount + number;
 
         resultField.innerHTML = `
-          <p class="label">Percentage:</p><p>${Percentage}</p>
-          <p class="label charge">Charge:</p><p>${amount}</p>
-          <p class="label total">Total amount:</p><p>${totalAmount}</p>
+          <p class="label">Percentage:</p><p>${Percentage}%</p>
+          <p class="label charge">Charge:</p><p>₹${amount}</p>
+          <p class="label total">Total amount:</p><p>₹${totalAmount}</p>
         `;
 
         numberField.value = ""; // Clear the input field after displaying the result
